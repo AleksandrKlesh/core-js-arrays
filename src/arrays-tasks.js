@@ -47,10 +47,9 @@ function sumArrays(arr1, arr2) {
     mainArray = arr2;
     sideArray = arr1;
   }
-  const array = mainArray.map(function (num, index) {
+  return mainArray.map((num, index) => {
     return num + (sideArray[index] || 0);
   });
-  return array;
 }
 
 /**
