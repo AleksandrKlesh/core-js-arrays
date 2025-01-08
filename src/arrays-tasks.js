@@ -374,13 +374,6 @@ function createChunks(arr, chunkSize) {
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  // if (len === 0) {
-  //   return [];
-  // }
-  // if (len === 1) {
-  //   return [1];
-  // }
-
   return Array.from({ length: len }, (_, i) => {
     if (i === 0) {
       return 1;
@@ -401,8 +394,8 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, [first, ...others]) {
+  return others.length ? getElementByIndices(arr[first], others) : arr[first];
 }
 
 /**
@@ -507,15 +500,15 @@ function findCommonElements(/* arr1, arr2 */) {
 }
 
 /**
- * Finds the length of the longest increasing and uninterrupted subsequence of a given array of integers.
+ * Finds the length of the longest increasing subsequence of a given array of integers.
  *
  * @param {array} nums - The array of integers.
  * @return {number} - The length of the longest increasing subsequence.
  *
  * @example
- *    findLongestIncreasingSubsequence([10, 22, 9, 33, 21, 50, 41, 60, 80]) => longest is [41, 60, 80] => 3
- *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => longest is [3, 10] and [1, 20] => 2
- *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => longest is [7, 40, 80] => 3
+ *    findLongestIncreasingSubsequence([10, 22, 9, 33, 21, 50, 41, 60, 80]) => 3
+ *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 2
+ *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
 function findLongestIncreasingSubsequence(/* nums */) {
   throw new Error('Not implemented');
